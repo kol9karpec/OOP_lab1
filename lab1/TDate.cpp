@@ -27,14 +27,14 @@ char* TDate::print()
 {
 	char * buff = new char[255];
 	string result = "";
-	result.append((day > 10) ? "":"0");
+	result.append((day >= 10) ? "":"0");
 	result.append(_itoa(this->day,buff,10));
 	result.append(".");
-	result.append((month > 10) ? "" : "0");
+	result.append((month >= 10) ? "" : "0");
 	result.append(_itoa(this->month, buff, 10));
 	result.append(".");
 	int modYear = this->year % 100;
-	result.append((modYear > 10) ? "" : "0");
+	result.append((modYear >= 10) ? "" : "0");
 	result.append(_itoa(modYear, buff, 10));	
 	delete(buff);
 	char * res = new char[result.size() + 1];

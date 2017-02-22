@@ -30,6 +30,21 @@ TShowRoom::TShowRoom(TShowRoom & showRoom)
 }
 
 
+TShowRoom & TShowRoom::setTitle(const char * title)
+{
+	strcpy(this->title, title);
+	return *this;
+}
+
+TShowRoom & TShowRoom::setExhibits(TExhibit ** exhibits)
+{
+	for (int i = 0; i < this->count; i++)
+	{
+		//this->exhibits[i].
+	}
+	return *this;
+}
+
 char * TShowRoom::print()
 {
 	string result;

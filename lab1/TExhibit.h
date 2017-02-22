@@ -23,6 +23,8 @@ public:
 	TLocation getLocation() { return this->location; }
 	int getPrice() { return this->price; }
 
+	TExhibit& setWorkOfArt() {}
+
 	char* print();
 
 

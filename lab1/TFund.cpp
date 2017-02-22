@@ -3,29 +3,31 @@
 TFund::TFund()
 {
 	this->title = new char[FIELD_SIZE];
-	this->title = "";
+	//this->title = "";
+	strcpy(this->title, "");
 	this->address = new char[FIELD_SIZE];
-	this->address = "";
+	//this->address = "";
+	strcpy(this->address,"");
 }
 
 TFund::TFund(const char * title, const char * address)
 {
 	this->title = new char[FIELD_SIZE];
-	this->title = "";
+	//this->title = "";
 	this->address = new char[FIELD_SIZE];
-	this->address = "";
-	if (strlen(title) < FIELD_SIZE) cout << "Too long title!" << endl;
+	//this->address = "";
+	if (strlen(title) > FIELD_SIZE) cout << "Too long title!" << endl;
 	else strcpy(this->title, title);
-	if (strlen(address) < FIELD_SIZE) cout << "Too long size!" << endl;
+	if (strlen(address) > FIELD_SIZE) cout << "Too long size!" << endl;
 	else strcpy(this->address, address);
 }
 
 TFund::TFund(const TFund & fund)
 {
 	this->title = new char[FIELD_SIZE];
-	this->title = "";
+	//this->title = "";
 	this->address = new char[FIELD_SIZE];
-	this->address = "";
+	//this->address = "";
 	strcpy(this->title,fund.title);
 	strcpy(this->address,fund.address);	
 }
@@ -58,12 +60,12 @@ char * TFund::print()
 
 TFund::~TFund()
 {
-	if (this->title != nullptr) 
+	if (this->title != NULL) 
 	{ 
 		delete(this->title); 
 		this->title = NULL;
 	}
-	if (this->address != nullptr)
+	if (this->address != NULL)
 	{
 		delete(this->address);
 		this->address = NULL;

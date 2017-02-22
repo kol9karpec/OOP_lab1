@@ -2,11 +2,12 @@
 
 
 
-TWorkOfArt::TWorkOfArt() : year(0), width(0),
-						height(0), length(0)
+TWorkOfArt::TWorkOfArt() : year(0), width(0.0),
+						height(0.0), length(0.0)
 {
 	this->title = new char[FIELD_SIZE_1];
-	this->title = "";
+	strcpy(this->title,"");
+	//this->title = "";
 }
 
 TWorkOfArt::TWorkOfArt(const char * title, int year, double length,
@@ -14,13 +15,15 @@ TWorkOfArt::TWorkOfArt(const char * title, int year, double length,
 								height(height), length(length)
 {
 	this->title = new char[FIELD_SIZE_1];
-	this->title = "";
+	strcpy(this->title, "");
+	//this->title = "";
 	if (strlen(title) < FIELD_SIZE_1)	strcpy(this->title, title);
 	else { cout << "Too long title!" << endl; }
 }
 
 TWorkOfArt::TWorkOfArt(const TWorkOfArt & workOfArt)
 {
+	this->title = new char[FIELD_SIZE_1];
 	strcpy(this->title, workOfArt.title);
 	this->year = workOfArt.year;
 	this->length = workOfArt.length;
@@ -48,19 +51,10 @@ char* TWorkOfArt::print()
 
 	ostringstream strs;
 	strs << setprecision(2) << this->length;
-	result.append(strs.str());
-	result.append("\t");
-	strs.clear();
+	strs << "\t";
+	strs << this->width << "\t" << this->height;
 
-	strs << setprecision(2) << this->width;
 	result.append(strs.str());
-	result.append("\t");
-	strs.clear();
-
-	strs << setprecision(2) << this->height;
-	result.append(strs.str());
-	result.append("\t");
-	strs.clear();
 
 	delete(buff);
 
