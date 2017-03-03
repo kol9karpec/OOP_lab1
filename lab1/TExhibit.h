@@ -13,7 +13,7 @@ private:
 	TLocation location;
 	int price;
 public:
-	TExhibit(): location(wall) {};
+	TExhibit(): location(wall), price(0) {};
 	TExhibit(TWorkOfArt& workOfArt, TFund& fund,
 		TLocation location, int price);
 	TExhibit(TExhibit&);
@@ -23,7 +23,10 @@ public:
 	TLocation getLocation() { return this->location; }
 	int getPrice() { return this->price; }
 
-	TExhibit& setWorkOfArt() {}
+	TExhibit& setWorkOfArt(TWorkOfArt &);
+	TExhibit& setFund(TFund &);
+	TExhibit& setLocation(TLocation);
+	TExhibit& setPrice(int);
 
 	char* print();
 

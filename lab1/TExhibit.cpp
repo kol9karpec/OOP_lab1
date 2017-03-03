@@ -28,18 +28,47 @@ TExhibit::TExhibit(TWorkOfArt & workOfArt, TFund & fund, TLocation location, int
 	this->price = price;
 }
 
+TExhibit & TExhibit::setWorkOfArt(TWorkOfArt & workOfArt)
+{
+	this->workOfArt.setTitle(workOfArt.getTitle());
+	this->workOfArt.setYear(workOfArt.getYear());
+	this->workOfArt.setHeight(workOfArt.getHeight());
+	this->workOfArt.setWidth(workOfArt.getWidth());
+	this->workOfArt.setLength(workOfArt.getLength());
+	return *this;
+}
+
+TExhibit & TExhibit::setFund(TFund & fund)
+{
+	this->fund.setTitle(fund.getTitle());
+	this->fund.setAddress(fund.getAddress());
+	return *this;
+}
+
+TExhibit & TExhibit::setLocation(TLocation location)
+{
+	this->location = location;
+	return *this;
+}
+
+TExhibit & TExhibit::setPrice(int price)
+{
+	this->price = price;
+	return *this;
+}
+
 char* TExhibit::print()
 {
 	char * buff = new char[256];
 	string result;
-	result.assign(workOfArt.print());
-	result.assign("\t");
-	result.assign(fund.print());
-	result.assign("\t");
-	result.assign(locations[location]);
-	result.assign("\t");
-	result.assign(_itoa(price,buff,10));
-	delete buff;
+	result.append(workOfArt.print());
+	result.append("\t");
+	result.append(fund.print());
+	result.append("\t");
+	result.append(locations[location]);
+	result.append("\t");
+	result.append(_itoa(price,buff,10));
+	delete(buff);
 	char * res = new char[result.size() + 1];
 	strcpy(res, result.data());
 	return res;

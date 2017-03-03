@@ -33,9 +33,8 @@ TWorkOfArt::TWorkOfArt(const TWorkOfArt & workOfArt)
 
 TWorkOfArt& TWorkOfArt::setTitle(const char * title)
 {
-	if (strlen(title) < FIELD_SIZE_1)
-		cout << "Too long title!" << endl;
-	else strcpy(this->title, title);
+	if (strlen(title) < FIELD_SIZE_1) strcpy(this->title, title);
+	else cout << "Too long title!" << endl;
 	return *this;
 }
 
@@ -72,7 +71,7 @@ TWorkOfArt::~TWorkOfArt()
 		this->title = NULL;
 	}
 	this->year = 0;
-	this->width = 0;
-	this->height = 0;
-	this->length = 0;
+	this->width = 0.0;
+	this->height = 0.0;
+	this->length = 0.0;
 }

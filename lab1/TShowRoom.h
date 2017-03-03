@@ -20,10 +20,11 @@ public:
 	int getCount() { return this->count; }
 
 	TShowRoom& setTitle(const char* title);
-	TShowRoom& setExhibits(TExhibit ** exhibits);
-	TShowRoom& setCount(int count);
-
+	TShowRoom& setExhibits(TExhibit ** exhibits,int count);
+	
+	TShowRoom& addExhibit(TExhibit& exhibit);
 	char * print();
+	char * shortPrint();
 
 
 
